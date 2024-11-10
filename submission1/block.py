@@ -19,8 +19,8 @@
 #         return validated_groups
 
 
-from .nlp_layer import NLPLayer
-from .llm_layer import LLMLayer
+from nlp_layer import NLPLayer
+from llm_layer import LLMLayer
 
 class Block:
     def __init__(self):

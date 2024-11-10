@@ -1,17 +1,14 @@
-from groq import Groq
+
 import os
-from dotenv import load_dotenv
 import re
 import itertools
 import requests
-import ollama
-load_dotenv()
 
 class LLMLayer:
     def __init__(self):
-        self.groq_api_key = "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"
-        # self.groq_api_key = os.getenv("GROQ_API_KEY")
-        self.client = Groq(api_key=self.groq_api_key)
+        # self.groq_api_key = "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"
+        # # self.groq_api_key = os.getenv("GROQ_API_KEY")
+        # self.client = Groq(api_key=self.groq_api_key)
         self.url = 'https://llama.psurabhi.workers.dev/'
         self.headers = {
             'Content-Type': 'application/json'

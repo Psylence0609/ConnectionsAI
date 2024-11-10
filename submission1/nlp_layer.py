@@ -58,7 +58,7 @@ import spacy
 from sklearn.metrics.pairwise import cosine_distances
 import numpy as np
 from spacy.cli import download
-from k_means_constrained import KMeansConstrained
+# from k_means_constrained import KMeansConstrained
 
 class NLPLayer:
     def __init__(self):
@@ -80,8 +80,8 @@ class NLPLayer:
         for group in initial_groups:
             embeddings = self.get_word_embeddings(group)
             # print("size of embeddings: ", embeddings.shape)
-            clustering = KMeansConstrained(n_clusters=1, size_min=4, size_max=4, random_state=0)
-            cluster_labels = clustering.fit_predict(embeddings)
-            if len(set(cluster_labels)) == 1:
-                refined_groups.append(group)
+            # clustering = KMeansConstrained(n_clusters=1, size_min=4, size_max=4, random_state=0)
+            # cluster_labels = clustering.fit_predict(embeddings)
+            # if len(set(cluster_labels)) == 1:
+            refined_groups.append(group)
         return refined_groups

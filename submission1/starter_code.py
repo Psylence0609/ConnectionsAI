@@ -4,10 +4,8 @@ from block import Block
 import os
 import ast
 from grouping_manager import GroupingManager
-from dotenv import load_dotenv
 import time
 
-load_dotenv()
 prev_len = 0
 
 def model(words, strikes, isOneAway, correctGroups, previousGuesses, error):
