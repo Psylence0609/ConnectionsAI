@@ -29,7 +29,7 @@ def model(words, strikes, isOneAway, correctGroups, previousGuesses, error):
 	global prev_len
 	# Your Code here
 	# Good Luck!
-	print("correctGroups in starter_code.py:", correctGroups)
+	# print("correctGroups in starter_code.py:", correctGroups)
 	words = ast.literal_eval(words)
 	wasCorrect = -1
 	if len(correctGroups)>prev_len:
@@ -63,7 +63,7 @@ def model(words, strikes, isOneAway, correctGroups, previousGuesses, error):
 
 	# Get the best candidate groups from the GroupingManager
 	best_group, endTurn = grouping_manager.get_best_group()
-	print("Best group in starter_code.py:", best_group)
+	# print("Best group in starter_code.py:", best_group)
 	if isOneAway:
 		return best_group, False
 	# If we have a valid best group, start processing the next guess
@@ -81,6 +81,6 @@ def model(words, strikes, isOneAway, correctGroups, previousGuesses, error):
 	# If a valid group is resolved, return it
 	if resolved_group:
 		guess = resolved_group
-	print("Guess inside model:", guess)
+	# print("Guess inside model:", guess)
 	return guess, endTurn
 

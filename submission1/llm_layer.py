@@ -22,7 +22,7 @@ class LLMLayer:
         """
         initial_groups = []
         
-        print("initial words: ", words, "len: ", len(words))
+        # print("initial words: ", words, "len: ", len(words))
         # Call LLM to suggest associations and groupings
         prompt = f"Cluster the following {len(words)} words into {len(words)//4} groups where each group contains 4 words: {words}\nConsider semantic, complex, homophones, palindromes etc type of reasoning."
         if len(previousGuesses) > 0:
@@ -37,7 +37,7 @@ class LLMLayer:
                 prompt += "\nYour previous guess was wrong."
             previousGuesses = [', '.join(guess) for guess in previousGuesses]
             previousGuesses = '\n'.join(previousGuesses)
-            print(previousGuesses)
+            # print(previousGuesses)
             prompt += f"\nThese are your previous guesses: \n{previousGuesses}. DO NOT consider these combinations.\n"
         prompt +=f"""
             VERY IMPORTANT:Instructions for the output:
@@ -73,7 +73,7 @@ class LLMLayer:
                     response = response['response']
                 else:
                     continue
-                print("response: ", response)
+                # print("response: ", response)
                 # Parse response to form groups
                 initial_groups, check = self.parse_response_to_groups(response, words)
                 if check == True:
@@ -104,7 +104,7 @@ class LLMLayer:
                 # return [response_words[i:i + 4] for i in range(0, len(response_words), 4)], True
             elif len(response_words) > len(words):
                 return [], False
-            print("words: ", response_words)
+            # print("words: ", response_words)
             return [response_words[i:i + 4] for i in range(0, len(response_words), 4)], True
         except Exception as e:
             print("Error parsing response to groups:", e)
@@ -143,7 +143,7 @@ class LLMLayer:
                 #         response = response['message']['content']
                 # else:
                 #     continue
-                print("response: ", response)
+                # print("response: ", response)
                 # Parse response to form groups
                 lines = response.strip().splitlines()
                 lines = [line.strip() for line in lines if line and not line.startswith("Here")]
@@ -174,7 +174,7 @@ class LLMLayer:
             # if 'message' in response.keys():
             #         if 'content' in response['message'].keys():
             #             response = response['message']['content']
-            print('validation: ', response)
+            # print('validation: ', response)
             is_valid = "yes" in response or "Yes" in response # Check if LLM responded positively
             return is_valid, group
         except Exception as e:
@@ -199,11 +199,11 @@ class LLMLayer:
             # if 'message' in response.keys():
             #         if 'content' in response['message'].keys():
             #             response = response['message']['content']
-            print('score: ', response)
+            # print('score: ', response)
             try:
                 score = int(response)
             except ValueError:
-                print("Error parsing score; received response:", response)
+                # print("Error parsing score; received response:", response)
                 score = 0  # Default to 0 if parsing fails
             return score
         except Exception as e:
