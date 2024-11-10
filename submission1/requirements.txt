@@ -1,5 +1,5 @@
 flask==3.0.3
 spacy==3.8.2
 scikit-learn==1.5.2
-numpy==2.0.2
+numpy==2.1.2
 k-means-constrained==0.7.5
